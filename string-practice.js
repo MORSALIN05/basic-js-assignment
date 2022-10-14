@@ -7,3 +7,16 @@ function isJavaScriptFile(myString) {
 }
 const matchFile = isJavaScriptFile(myString);
 console.log(matchFile);
+console.log('isObjectTest');
+
+const variable1 = { name: 'Tom' };
+const variable2 = 4;
+
+if ((typeof (variable1 && variable2) === 'object') &&
+    ((variable1 && variable2) !== null) &&
+    (!Array.isArray(variable1 && variable2))) {
+    // 👇️ this runs
+    console.log('✅ Value is an object');
+} else {
+    console.log('⛔️ Value is not an object');
+}

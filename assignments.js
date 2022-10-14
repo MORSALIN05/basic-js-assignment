@@ -56,23 +56,36 @@ console.log('Total Oil Price =', Total);
 //Problem 4: Calculate the number for publicBusFare.
 
 function publicBusFare(people) {
-    const reservedBus = 50;
-    const microBus = 11;
-    const restOfThePeople = people - (reservedBus + microBus);
-    let publicBusCost = restOfThePeople * 250;
-    return publicBusCost;
+    if (!isNaN(people)) {
+        const reservedBus = 50;
+        const microBus = 11;
+        const restOfThePeople = people - (reservedBus + microBus);
+        let publicBusCost = restOfThePeople * 250;
+        return publicBusCost;
+    }
+    else return console.log('Pls Enter Only Numeric');
 }
-console.log('publicBusFare = ', publicBusFare(71));
+console.log('publicBusFare = ', publicBusFare('u'));
 
 //Problem 5: Find if Best friend or not with use object as parameter!
 
 function isBestFriend(objectFirst, objectSecond) {
+    const errorMsg3 = 'Pls! Enter Object only';
     console.log('Is Best friend');
-    if (objectFirst.name === objectSecond.friend && objectFirst.friend === objectSecond.name) { return true; }
-    else { return false; }
+    //test if object
+    if (typeof (objectFirst && objectSecond) === 'object' &&
+        (objectFirst && objectSecond) !== null &&
+        !Array.isArray(objectFirst && objectSecond)) {
+
+        if (objectFirst.name === objectSecond.friend && objectFirst.friend === objectSecond.name) { return true; }
+
+        else { return false; }
+    }
+    else { return errorMsg3; }
 
 }
 // object initialization
+let object0 = 3;
 object1 = {
     name: 'Tom', friend: 'Rock'
 }
@@ -86,5 +99,5 @@ object3 = {
 object4 = {
     name: 'Tarik', friend: 'Rakib'
 }
-const bestFriend = isBestFriend(object1, object2);
+const bestFriend = isBestFriend(object0, object2);
 console.log(bestFriend);
