@@ -73,7 +73,7 @@ function isBestFriend(objectFirst, objectSecond) {
     const errorMsg3 = 'Pls! Enter Object only';
     console.log('Is Best friend');
     //test if object
-    // if ((typeof (objectFirst && objectSecond) === 'object') &&
+    // if ((typeof objectFirst && typeof objectSecond) === 'object' &&
     //     ((objectFirst && objectSecond) !== null) &&
     //     (!Array.isArray((objectFirst && objectSecond))) && (objectFirst && objectSecond).constructor === Object) {
     //     {
@@ -86,8 +86,8 @@ function isBestFriend(objectFirst, objectSecond) {
     //     ((objectFirst && objectSecond) !== null) &&
     //     (!Array.isArray((objectFirst && objectSecond))) && (objectFirst && objectSecond).constructor !== Object)
     //     return errorMsg3;
-    //else console.log('pls enter object as parameter');
-    if (typeof objectFirst === typeof objectSecond) {
+    // else console.log('pls enter object as parameter');
+    if (typeof objectFirst && typeof objectSecond === 'object') {
         if (objectFirst.name === objectSecond.friend && objectFirst.friend === objectSecond.name) return true;
         else return false;
     }
@@ -96,6 +96,7 @@ function isBestFriend(objectFirst, objectSecond) {
 }
 // object initialization
 object0 = 3;
+object5 = 4;
 object1 = {
     name: 'Tom', friend: 'Rock'
 }
@@ -109,5 +110,5 @@ object3 = {
 object4 = {
     name: 'Tarik', friend: 'Rakib'
 }
-let bestFriend = isBestFriend(object1, object2);
+let bestFriend = isBestFriend(object0, object5);
 console.log(bestFriend);
