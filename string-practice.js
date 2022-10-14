@@ -16,7 +16,12 @@ if ((typeof (variable1 && variable2) === 'object') &&
     ((variable1 && variable2) !== null) &&
     (!Array.isArray(variable1 && variable2))) {
     // 👇️ this runs
-    console.log('✅ Value is an object');
+    //console.log('✅ Value is an object');
 } else {
-    console.log('⛔️ Value is not an object');
+    //console.log('⛔️ Value is not an object');
 }
+//new test
+if (typeof variable1 === typeof variable2) {
+    console.log('✅ Value is an object');
+}
+else console.log('⛔️ Value is not an object');
