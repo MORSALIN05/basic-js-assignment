@@ -1,114 +1,106 @@
 /*assignment Four use only Lovely JavaScript*/
 
 //problem 1: Radian to degree converter function.
-let errorMsg1 = 'Pls Enter only Number';
-function radianToDegree(Radian) {
-    if (!isNaN(Radian)) {
-        const Degrees = Radian * (180 / Math.PI);
+
+function radianToDegree(Radian) {    //calculate radian to degree
+    const errorMsg1 = 'Pls Enter only Number';
+    if (!isNaN(Radian)) {        //check if it's a number
+        const Degrees = Radian * (180 / Math.PI);  //Formula
         return Degrees;
     }
-    else return errorMsg1;
+    else return errorMsg1;   //return if not get a number
 
 }
-console.log(radianToDegree('o'), ' Degree celcius');
+console.log(radianToDegree(1));  //output
 
 //problem 2: Is JavaScript File or not return true or false.
-let myString = 'javascript.js';
-const myString2 = 5;
-let errorMsg = 'enter string';
+// let myString = 'javascript.js';
+// const myString2 = 5;
+// let errorMsg = 'enter string';
 //console.log(myString2);
-function isJavaScriptFile(myString2) {
+function isJavaScriptFile(detectJsExtension) {
 
-    if (typeof myString2 === 'string') {
-        const newString = myString2.includes('.js');
+    let errorMsg = 'enter string for jsFile';
+    if (typeof detectJsExtension === 'string') //check if string or not
+    {
+        const newString = detectJsExtension.includes('.js'); //has '.js'
         return newString;
     }
     else { return errorMsg; }
 
-
-    //else
-    //console.log('please eneter only string')
-    //return newString;
 }
-const matchFile = isJavaScriptFile(myString2);
+const matchFile = isJavaScriptFile('yiew.js');
 console.log(matchFile);
 //isJavaScriptFile('JavaScript.js');
 
 //Problem 3: calculate Total Oil Price that have to pay.
-const errorMsg2 = 'Pls! input right parameter';
-function oilPrice(diesel, petrol, octane) {
-    if (!isNaN(diesel && petrol && octane)) {
+
+function oilPrice(diesel, petrol, octane) {  //calcuate oil price
+    const errorMsg2 = 'Pls! input right parameter';
+    if (!isNaN(diesel && petrol && octane)) {   //check numeric or not
         const dieselPrice = 114;
         const petrolPrice = 130;
         const octanePrice = 135;
-        let totalDieselPrice = diesel * dieselPrice;
+        let totalDieselPrice = diesel * dieselPrice; //calcuate total diesel price & same as below
         let totalPetrolPrice = petrol * petrolPrice;
         let totalOctanePrice = octane * octanePrice;
-        const totalOilPrice = totalDieselPrice + totalPetrolPrice + totalOctanePrice;
+        const totalOilPrice = totalDieselPrice + totalPetrolPrice + totalOctanePrice;   //sum total oil price
         return totalOilPrice;
     }
-    else return errorMsg2
+    else return errorMsg2  //if wrong input
 
 }
-const Total = oilPrice(1, 2, 'ab');
-console.log('Total Oil Price =', Total);
+let Total = oilPrice(1, 2, 3); // Set function to a variable
+console.log(Total); // Output Oil price
 
 //Problem 4: Calculate the number for publicBusFare.
 
-function publicBusFare(people) {
-    if (!isNaN(people)) {
-        const reservedBus = 50;
-        const microBus = 11;
-        const restOfThePeople = people - (reservedBus + microBus);
+function publicBusFare(people) {    //function to calcualte PublicBusFare
+    const msg = 'Pls! Enter only Numeric number';
+    if (typeof people == 'number') {
+        const reservedBus = 50;  //fixed capacity for reserved bus
+        const microBus = 11;    //and for micro bus
+        let restOfThePeople = people - (reservedBus + microBus); // Calculate rest of the people who can't take Reserved bus or micro
         let publicBusCost = restOfThePeople * 250;
         return publicBusCost;
     }
-    else return console.log('Pls Enter Only Numeric');
+    else return msg;
 }
-console.log('publicBusFare = ', publicBusFare('u'));
+console.log(publicBusFare(63)); //output for public bus cost
+
 
 //Problem 5: Find if Best friend or not with use object as parameter!
 
+//function for finding best Friend
 function isBestFriend(objectFirst, objectSecond) {
-    const errorMsg3 = 'Pls! Enter Object only';
-    console.log('Is Best friend');
-    //test if object
-    // if ((typeof objectFirst && typeof objectSecond) === 'object' &&
-    //     ((objectFirst && objectSecond) !== null) &&
-    //     (!Array.isArray((objectFirst && objectSecond))) && (objectFirst && objectSecond).constructor === Object) {
-    //     {
-    //         if (objectFirst.name === objectSecond.friend && objectFirst.friend === objectSecond.name) return true;
-    //         else if (objectFirst.name !== objectSecond.friend || objectFirst.friend !== objectSecond.name) return false;
-    //     }
-    // }
 
-    // else if ((typeof (objectFirst && objectSecond) !== 'object') &&
-    //     ((objectFirst && objectSecond) !== null) &&
-    //     (!Array.isArray((objectFirst && objectSecond))) && (objectFirst && objectSecond).constructor !== Object)
-    //     return errorMsg3;
-    // else console.log('pls enter object as parameter');
+    const errorMsg3 = 'Pls! Enter Object only';
+    //console.log('Is Best friend');
+
+    //check the parameter that 'Object' type or not
     if (typeof objectFirst && typeof objectSecond === 'object') {
+        // Check if the two object match the criteria
         if (objectFirst.name === objectSecond.friend && objectFirst.friend === objectSecond.name) return true;
         else return false;
     }
     else return errorMsg3;
 
 }
-// object initialization
-object0 = 3;
-object5 = 4;
-object1 = {
+// object declaration
+const object0 = 3;
+const object5 = 4;
+const object1 = {
     name: 'Tom', friend: 'Rock'
 }
-object2 = {
+const object2 = {
     name: 'Rock', friend: 'Tom'
 }
 
-object3 = {
+const object3 = {
     name: 'Rakib', friend: 'Tarik'
 }
-object4 = {
+const object4 = {
     name: 'Tarik', friend: 'Rakib'
 }
-let bestFriend = isBestFriend(object0, object5);
-console.log(bestFriend);
+let bestFriend = isBestFriend(object1, object2);
+console.log(bestFriend); //output of function
